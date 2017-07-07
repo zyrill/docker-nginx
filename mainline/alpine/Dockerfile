@@ -1,6 +1,6 @@
 FROM alpine:3.5
 
-MAINTAINER NGINX Docker Maintainers "docker-maint@nginx.com"
+MAINTAINER Dr. Philipp Krüger <p.a.c.krueger@gmail.com>
 
 ENV NGINX_VERSION 1.13.2
 
