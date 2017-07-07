@@ -2,8 +2,8 @@ FROM debian:stretch-slim
 
 MAINTAINER NGINX Docker Maintainers "docker-maint@nginx.com"
 
-ENV NGINX_VERSION 1.13.0-1~stretch
-ENV NJS_VERSION   1.13.0.0.1.10-1~stretch
+ENV NGINX_VERSION 1.13.2-1~stretch
+ENV NJS_VERSION   1.13.2.0.1.11-1~stretch
 
 RUN apt-get update \
 	&& apt-get install --no-install-recommends --no-install-suggests -y gnupg1 \
@@ -39,6 +39,6 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 
 EXPOSE 80
 
-STOPSIGNAL SIGQUIT
+STOPSIGNAL SIGTERM
 
 CMD ["nginx", "-g", "daemon off;"]
