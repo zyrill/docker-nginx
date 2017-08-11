@@ -1,6 +1,6 @@
 FROM alpine:3.5
 
-LABEL maintainer="NGINX Docker Maintainers <docker-maint@nginx.com>"
+LABEL maintainer="Dr. Philipp Krüger <p.a.c.krueger@gmail.com>"
 
 ENV NGINX_VERSION 1.13.4
 
