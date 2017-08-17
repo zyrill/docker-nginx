@@ -9,4 +9,6 @@ Changes compared with upstream:
 - generally more up to date nginx version
 - fixed user and group IDs to correspond to those used by php:*-fpm-alpine
 
+Note that tagged images are released and never changed. The "latest" image however may be a few commits ahead of the last released version. This process allows incorporation of version bumps of upstream images without touching compromising stability of releases.
+
 Find the Docker image here: (https://hub.docker.com/r/zyrill/nginx/)
