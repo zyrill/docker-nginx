@@ -1,4 +1,4 @@
-FROM alpine:3.5
+FROM alpine:3.6
 
 LABEL maintainer="Dr. Philipp Krüger <p.a.c.krueger@gmail.com>"
 
@@ -67,7 +67,6 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 		geoip-dev \
 	&& curl -fSL http://nginx.org/download/nginx-$NGINX_VERSION.tar.gz -o nginx.tar.gz \
 	&& curl -fSL http://nginx.org/download/nginx-$NGINX_VERSION.tar.gz.asc  -o nginx.tar.gz.asc \
-	&& export GNUPGHOME="$(mktemp -d)" \
 	&& found=''; \
 	for server in \
 		ha.pool.sks-keyservers.net \
@@ -80,7 +79,6 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 	done; \
 	test -z "$found" && echo >&2 "error: failed to fetch GPG key $GPG_KEYS" && exit 1; \
 	gpg --batch --verify nginx.tar.gz.asc nginx.tar.gz \
-	&& rm -r "$GNUPGHOME" nginx.tar.gz.asc \
 	&& mkdir -p /usr/src \
 	&& tar -zxC /usr/src -f nginx.tar.gz \
 	&& rm nginx.tar.gz \
