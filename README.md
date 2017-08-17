@@ -12,3 +12,4 @@ Changes compared with upstream:
 Note that tagged images are released and never changed. The "latest" image however may be a few commits ahead of the last released version. This process allows incorporation of version bumps of upstream images without compromising stability of releases.
 
 Find the Docker image here: (https://hub.docker.com/r/zyrill/nginx/)
+Find development info here: (https://github.com/zyrill/docker-nginx) 
