@@ -124,7 +124,7 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 			| sort -u \
 	)" \
 	&& apk add --no-cache --virtual .nginx-rundeps $runDeps \
-	&& apk del .build-deps .gettext curl gcc make \
+	&& apk del .build-deps .gettext curl gcc gd-dev geoip-dev gnupg libc-dev libxslt-dev make openssl-dev pcre-dev zlib-dev linux-headers \
 	&& mv /tmp/envsubst /usr/local/bin/ \
 	\
 	# forward request and error logs to docker log collector
