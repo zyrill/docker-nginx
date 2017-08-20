@@ -53,18 +53,18 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 	&& addgroup -g 666 -S nginx \
 	&& adduser -u 666 -D -S -h /var/cache/nginx -s /sbin/nologin -G nginx nginx \
 	&& apk update && apk upgrade && apk add --no-cache --virtual .build-deps \
+		curl \
 		gcc \
+		gd-dev \
+		geoip-dev \
+		gnupg \
 		libc-dev \
+		libxslt-dev \
+		linux-headers \
 		make \
 		openssl-dev \
 		pcre-dev \
 		zlib-dev \
-		linux-headers \
-		curl \
-		gnupg \
-		libxslt-dev \
-		gd-dev \
-		geoip-dev \
 	&& rm -rf /var/cache/apk/* \
 	&& curl -fSL http://nginx.org/download/nginx-$NGINX_VERSION.tar.gz -o nginx.tar.gz \
 	&& curl -fSL http://nginx.org/download/nginx-$NGINX_VERSION.tar.gz.asc  -o nginx.tar.gz.asc \
