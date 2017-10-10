@@ -1,4 +1,4 @@
-FROM alpine:3.5
+FROM alpine:3.6
 
 LABEL maintainer="Dr. Philipp Krüger <p.a.c.krueger@gmail.com>"
 

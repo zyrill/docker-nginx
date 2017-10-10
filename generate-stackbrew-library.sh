@@ -65,6 +65,7 @@ for version in "${versions[@]}"; do
 	echo
 	cat <<-EOE
 		Tags: $(join ', ' "${versionAliases[@]}")
+		Architectures: amd64, arm32v7, arm64v8, i386, ppc64le, s390x
 		GitCommit: $commit
 		Directory: $version/$base
 	EOE
@@ -78,12 +79,32 @@ for version in "${versions[@]}"; do
 		echo
 		cat <<-EOE
 			Tags: $(join ', ' "${variantAliases[@]}")
+			Architectures: amd64, arm32v7, arm64v8, i386, ppc64le, s390x
 			GitCommit: $commit
 			Directory: $version/$variant
 		EOE
 	done
 
 	for variant in alpine alpine-perl; do
+		commit="$(dirCommit "$version/$variant")"
+
+		variantAliases=( "${versionAliases[@]/%/-$variant}" )
+		variantAliases=( "${variantAliases[@]//latest-/}" )
+
+		# TODO Architectures once https://github.com/gliderlabs/docker-alpine/issues/304 is resolved
+
+		echo
+		cat <<-EOE
+			Tags: $(join ', ' "${variantAliases[@]}")
+			GitCommit: $commit
+			Directory: $version/$variant
+		EOE
+	done
+
+	for variant in amplify; do
+        if [ "$version" == "stable" ]; then
+               continue
+        fi
 		commit="$(dirCommit "$version/$variant")"
 
 		variantAliases=( "${versionAliases[@]/%/-$variant}" )
@@ -96,4 +117,5 @@ for version in "${versions[@]}"; do
 			Directory: $version/$variant
 		EOE
 	done
+
 done
