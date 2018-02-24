@@ -1,8 +1,8 @@
 FROM alpine:3.6
 
-LABEL maintainer="Dr. Philipp Krüger <p.a.c.krueger@gmail.com>"
+LABEL maintainer="Dr. Philipp Kleine Jäger <zyrill@users.noreply.github.com>"
 
-ENV NGINX_VERSION 1.13.8
+ENV NGINX_VERSION 1.13.9
 
 RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 	&& CONFIG="\
