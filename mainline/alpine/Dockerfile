@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM alpine:3.8
 
 LABEL maintainer="Dr. Philipp Kleine Jäger <zyrill@users.noreply.github.com>"
 
