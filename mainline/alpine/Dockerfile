@@ -1,8 +1,8 @@
-FROM alpine:3.8
+FROM alpine:3.9
 
 LABEL maintainer="Dr. Philipp Kleine Jäger <zyrill@users.noreply.github.com>"
 
-ENV NGINX_VERSION 1.15.5
+ENV NGINX_VERSION 1.16.0
 
 RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 	&& CONFIG="\
@@ -111,7 +111,7 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 			| awk 'system("[ -e /usr/local/lib/" $1 " ]") == 0 { next } { print "so:" $1 }' \
 	)" \
 	&& apk add --no-cache --virtual .nginx-rundeps $runDeps \
-	&& apk del .build-deps .gettext curl gcc gd-dev geoip-dev gnupg libc-dev libxslt-dev make openssl-dev pcre-dev zlib-dev linux-headers \
+	&& apk del --no-cache .build-deps .gettext curl gcc gd-dev geoip-dev gnupg libc-dev libxslt-dev make openssl-dev pcre-dev zlib-dev linux-headers \
 	&& mv /tmp/envsubst /usr/local/bin/ \
 	\
 	# forward request and error logs to docker log collector
