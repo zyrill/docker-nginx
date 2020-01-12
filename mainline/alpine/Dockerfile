@@ -1,8 +1,8 @@
-FROM alpine:3.10
+FROM alpine:3.11.2
 
 LABEL maintainer="Dr. Philipp Kleine Jäger <zyrill@users.noreply.github.com>"
 
-ENV NGINX_VERSION 1.17.1
+ENV NGINX_VERSION 1.17.7
 
 RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 	&& CONFIG="\
